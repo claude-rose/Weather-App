@@ -1,0 +1,118 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: lighter;
+}
+footer {
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.base-card {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #dfeefd;
+}
+
+.main-card {
+  width: 97%;
+  display: block;
+  margin: 0 auto;
+}
+
+.quote {
+  text-align: left;
+}
+
+.forecast-card {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 180px;
+  padding: 0px;
+}
+
+.search {
+  width: 100%;
+}
+
+.check {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.temperature {
+  font-size: 80px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.list-info {
+  list-style: none;
+  font-size: 20px;
+  padding-top: 80px;
+}
+
+.weather-symbol {
+  display: block;
+  margin: 0 auto;
+}
+
+.todays-temp {
+  text-align: center;
+  font-size: 25px;
+  padding-top: 20px;
+}
+
+.acknowledgement {
+  float: right;
+}
+
+.forecast-temp {
+  font-weight: lighter;
+  float: right;
+}
+
+.change-temp {
+  float: right;
+}
+
+.change-f,
+.change-c {
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
+}
+
+.change-f:hover,
+.change-c:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color: #00a6e4;
+}
+
+.current-location-button {
+  display: block;
+  margin-right: 60%;
+  color: #00a6e4;
+  border-color: #00a6e4;
+}
+
+.current-location-button:hover {
+  background: #00a6e4;
+  border-color: #00a6e4;
+  color: #fff;
+}
+
+.search-button {
+  color: #016ed7;
+  border-color: #016ed7;
+}
+
+.search-button:hover {
+  background: #016ed7;
+  border-color: #016ed7;
+  color: #fff;
+}

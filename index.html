@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9f0c9228f1.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <title>Happy Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card base-card">
+        <div class="card-body">
+          <nav class="navbar navbar-light bg-light check">
+            <div class="container-fluid search">
+              <form class="d-flex">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Change City"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+              <span class="change-type">
+                <i class="fas fa-thermometer-quarter"></i>
+                <span class="change-f">°F</span> |
+                <span class="change-c">°C</span>
+              </span>
+            </div>
+          </nav>
+        </div>
+        <div class="card main-card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3 border-end todays-temp">
+                Today is Sunny
+                <div class="temperature">23°</div>
+              </div>
+              <div class="col">
+                <ul class="list-info">
+                  <li class="moon"><i class="far fa-moon"></i></li>
+                  <li>Monday, 6th December</li>
+                  <li>
+                    <i class="fas fa-map-marker-alt"></i> Gold Coast, Australia
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <img
+                  src="images/sunny.png"
+                  alt="sunny"
+                  width="100%"
+                  class="weather-symbol"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card forecast-card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Tue <span class="forecast-temp">22°</span>
+                  </h5>
+                  <p class="card-text">
+                    <img src="images/storm.png" class="card-img" alt="storm" />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card forecast-card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Wed <span class="forecast-temp">22°</span>
+                  </h5>
+                  <p class="card-text">
+                    <img
+                      src="images/cloudy.png"
+                      class="card-img-top"
+                      alt="cloudy"
+                    />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card forecast-card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Thur <span class="forecast-temp">22°</span>
+                  </h5>
+                  <p class="card-text">
+                    <img src="images/sunny.png" class="card-img" alt="sunny" />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card forecast-card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Fri <span class="forecast-temp">22°</span>
+                  </h5>
+                  <p class="card-text">
+                    <img
+                      src="images/rainy.png"
+                      class="card-img-top"
+                      alt="rainy"
+                    />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card forecast-card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Sat <span class="forecast-temp">22°</span>
+                  </h5>
+                  <p class="card-text">
+                    <img
+                      src="images/sunny.png"
+                      class="card-img-top"
+                      alt="sunny"
+                    />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <footer>
+          <em class="quote">I am exactly where I need to be</em>
+
+          <span class="acknowledgement"
+            >Coded by Claudia Cross for SheCodes</span
+          >
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="src/script.js"></script>
+</html>
