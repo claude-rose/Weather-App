@@ -1,5 +1,3 @@
-//Replace Time
-
 function currentTime(inputDate) {
   let days = [
     "Sunday",
