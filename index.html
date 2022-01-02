@@ -55,17 +55,21 @@
           <div class="card-body">
             <div class="row">
               <div class="col-3 border-end todays-temp">
-                Today is Sunny
+                <em><span id="description"></span></em>
                 <div class="temperature"><span id="temperature">23</span>°</div>
               </div>
               <div class="col">
                 <ul class="list-info">
                   <li class="moon"><i class="far fa-moon"></i></li>
-                  <li id="today-date"></li>
-                  <li>Wind: 23% | Humidity: 23%</li>
                   <li>
                     <i class="fas fa-map-marker-alt"></i>
                     <span id="current-city">Gold Coast, Australia</span>
+                  </li>
+                  <li id="today-date"></li>
+                  <li>
+                    Wind: <span id="wind-speed"> </span>km/h
+                    <i class="fas fa-wind"></i> Humidity:
+                    <span id="humidity"> </span>%
                   </li>
                 </ul>
               </div>

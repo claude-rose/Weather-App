@@ -58,6 +58,12 @@ function searchTemperature(response) {
   document.querySelector(
     "#current-city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
 }
 
 function showPosition(position) {
