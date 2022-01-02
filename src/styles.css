@@ -74,7 +74,8 @@ footer {
 .list-info {
   list-style: none;
   font-size: 20px;
-  padding-top: 80px;
+  padding: 60px 10px 0;
+  margin: 0;
 }
 
 .weather-symbol {
