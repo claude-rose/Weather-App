@@ -64,6 +64,12 @@ function searchTemperature(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+  document
+    .querySelector("#weather-symbol")
+    .setAttribute("src", `images/${response.data.weather[0].icon}.png`);
+  document
+    .querySelector("#weather-symbol")
+    .setAttribute("alt", response.data.weather[0].description);
 }
 
 function showPosition(position) {
