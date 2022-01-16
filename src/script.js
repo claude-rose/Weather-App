@@ -49,6 +49,13 @@ function searchCity(city) {
   axios.get(apiUrl).then(searchTemperature);
 }
 
+function retrieveForecast(coords) {
+  let apiKey = "677a0d74bb153df8022c5d432026b13a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
@@ -93,6 +100,7 @@ function searchTemperature(response) {
     document.querySelector("#day-night").innerHTML =
       '<i class="far fa-moon"></i>';
   }
+  retrieveForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -120,25 +128,44 @@ function displayCelciusTemperature(event) {
     Math.round(celciusTemperature);
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    ` 
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        ` 
       <div class="col">
         <div class="card forecast-card">
           <div class="card-body">
             <h5 class="card-title">
-             Tue <span class="forecast-temp">22°</span>
+             ${formatDay(
+               forecastDay.dt
+             )} <span class="forecast-temp">${Math.round(
+          forecastDay.temp.day
+        )}°</span>
             </h5>
            <p class="card-text">
-             <img src="images/09d.png" class="card-img" alt="storm" />
+             <img src="images/${
+               forecastDay.weather[0].icon
+             }.png" class="card-img" alt="storm" />
             </p>
           </div>
         </div>
       </div>
    `;
+    }
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
