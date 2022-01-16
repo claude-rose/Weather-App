@@ -31,7 +31,7 @@ a {
 
 .current-location-button {
   display: block;
-  margin-right: 55%;
+  margin-right: 64%;
   color: #00a6e4;
   border-color: #00a6e4;
 }
@@ -105,14 +105,4 @@ a {
 .forecast-temp {
   font-weight: lighter;
   float: right;
-}
-
-.change-temp {
-  float: right;
-}
-
-.change-f:hover,
-.change-c:hover {
-  cursor: pointer;
-  color: #00a6e4;
 }

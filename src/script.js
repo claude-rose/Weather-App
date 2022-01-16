@@ -1,16 +1,3 @@
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  document.querySelector("#temperature").innerHTML = Math.round(
-    (celciusTemperature * 9) / 5 + 32
-  );
-}
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celciusTemperature);
-}
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -173,12 +160,6 @@ inputCity.addEventListener("submit", handleSubmit);
 
 let searchCurrentCity = document.querySelector(".current-location-button");
 searchCurrentCity.addEventListener("click", getCurrentPosition);
-
-let convertFahrenheit = document.querySelector(".change-f");
-convertFahrenheit.addEventListener("click", displayFahrenheitTemperature);
-
-let convertCelcius = document.querySelector(".change-c");
-convertCelcius.addEventListener("click", displayCelciusTemperature);
 
 searchCity("Gold Coast");
 currentTime(now);
