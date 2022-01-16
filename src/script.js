@@ -57,6 +57,7 @@ function handleSubmit(event) {
 
 function searchTemperature(response) {
   celciusTemperature = response.data.main.temp;
+  let weatherSymbolCode = response.data.weather[0].icon;
   document.querySelector("#temperature").innerHTML =
     Math.round(celciusTemperature);
   document.querySelector(
@@ -70,10 +71,27 @@ function searchTemperature(response) {
     response.data.weather[0].description;
   document
     .querySelector("#weather-symbol")
-    .setAttribute("src", `images/${response.data.weather[0].icon}.png`);
+    .setAttribute("src", `images/${weatherSymbolCode}.png`);
   document
     .querySelector("#weather-symbol")
     .setAttribute("alt", response.data.weather[0].description);
+  if (
+    weatherSymbolCode === "01d" ||
+    weatherSymbolCode === "02d" ||
+    weatherSymbolCode === "03d" ||
+    weatherSymbolCode === "04d" ||
+    weatherSymbolCode === "09d" ||
+    weatherSymbolCode === "10d" ||
+    weatherSymbolCode === "11d" ||
+    weatherSymbolCode === "13d" ||
+    weatherSymbolCode === "50d"
+  ) {
+    document.querySelector("#day-night").innerHTML =
+      '<i class="far fa-sun"></i>';
+  } else {
+    document.querySelector("#day-night").innerHTML =
+      '<i class="far fa-moon"></i>';
+  }
 }
 
 function showPosition(position) {
@@ -95,6 +113,12 @@ function displayFahrenheitTemperature(event) {
   );
 }
 
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celciusTemperature);
+}
+
 let celciusTemperature = null;
 
 let inputCity = document.querySelector("#search-bar");
@@ -105,5 +129,8 @@ searchCurrentCity.addEventListener("click", getCurrentPosition);
 
 let convertFahrenheit = document.querySelector(".change-f");
 convertFahrenheit.addEventListener("click", displayFahrenheitTemperature);
+
+let convertCelcius = document.querySelector(".change-c");
+convertCelcius.addEventListener("click", displayCelciusTemperature);
 
 searchCity("Gold Coast");
