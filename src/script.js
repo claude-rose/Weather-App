@@ -75,6 +75,7 @@ function searchTemperature(response) {
   document
     .querySelector("#weather-symbol")
     .setAttribute("alt", response.data.weather[0].description);
+
   if (
     weatherSymbolCode === "01d" ||
     weatherSymbolCode === "02d" ||
@@ -119,6 +120,29 @@ function displayCelciusTemperature(event) {
     Math.round(celciusTemperature);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    ` 
+      <div class="col">
+        <div class="card forecast-card">
+          <div class="card-body">
+            <h5 class="card-title">
+             Tue <span class="forecast-temp">22°</span>
+            </h5>
+           <p class="card-text">
+             <img src="images/09d.png" class="card-img" alt="storm" />
+            </p>
+          </div>
+        </div>
+      </div>
+   `;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celciusTemperature = null;
 
 let inputCity = document.querySelector("#search-bar");
@@ -134,3 +158,4 @@ let convertCelcius = document.querySelector(".change-c");
 convertCelcius.addEventListener("click", displayCelciusTemperature);
 
 searchCity("Gold Coast");
+displayForecast();
