@@ -43,12 +43,16 @@ currentTime(now);
 
 //Change city
 
-function searchCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-input").value;
+function searchCity(city) {
   let apiKey = "677a0d74bb153df8022c5d432026b13a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(searchTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-input").value;
+  searchCity(city);
 }
 
 function searchTemperature(response) {
@@ -70,6 +74,7 @@ function searchTemperature(response) {
   document
     .querySelector("#weather-symbol")
     .setAttribute("alt", response.data.weather[0].description);
+  currentTime(response.data.dt * 1000);
 }
 
 function showPosition(position) {
@@ -84,8 +89,10 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+searchCity("Gold Coast");
+
 let inputCity = document.querySelector("#search-bar");
-inputCity.addEventListener("submit", searchCity);
+inputCity.addEventListener("submit", handleSubmit);
 
 let searchCurrentCity = document.querySelector(".current-location-button");
 searchCurrentCity.addEventListener("click", getCurrentPosition);
