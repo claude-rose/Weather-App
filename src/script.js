@@ -56,9 +56,9 @@ function handleSubmit(event) {
 }
 
 function searchTemperature(response) {
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celciusTemperature = response.data.main.temp;
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celciusTemperature);
   document.querySelector(
     "#current-city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
@@ -74,7 +74,6 @@ function searchTemperature(response) {
   document
     .querySelector("#weather-symbol")
     .setAttribute("alt", response.data.weather[0].description);
-  currentTime(response.data.dt * 1000);
 }
 
 function showPosition(position) {
@@ -89,10 +88,22 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-searchCity("Gold Coast");
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = Math.round(
+    (celciusTemperature * 9) / 5 + 32
+  );
+}
+
+let celciusTemperature = null;
 
 let inputCity = document.querySelector("#search-bar");
 inputCity.addEventListener("submit", handleSubmit);
 
 let searchCurrentCity = document.querySelector(".current-location-button");
 searchCurrentCity.addEventListener("click", getCurrentPosition);
+
+let convertFahrenheit = document.querySelector(".change-f");
+convertFahrenheit.addEventListener("click", displayFahrenheitTemperature);
+
+searchCity("Gold Coast");
